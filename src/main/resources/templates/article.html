@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${article.enTitle}">Title</title>
+</head>
+<body>
+<header th:replace="~{frags/header}"></header>
+<main>
+    [(${renderedContents})]
+</main>
+
+
+</body>
+</html>

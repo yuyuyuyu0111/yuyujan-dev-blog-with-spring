@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>500 - 何かが上手くいっていないようです</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 50px;
+        }
+        p {
+            font-size: 20px;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1>500</h1>
+<p>何かが上手くいっていないようです</p>
+<p>たぶんそのうち治るはず...</p>
+<p>数日後にお試しください。治らない場合は<a href="https://x.com/yuyujan11">yuyujan</a>までXで教えてください</p>
+<p><a th:href="@{/}">ホームに戻る</a></p>
+</body>
+</html>

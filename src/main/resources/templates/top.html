@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title</title>
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body>
+<header th:replace="~{frags/header}"></header>
+<main>
+
+    <p>yuyujan.dev</p>
+
+
+    <th:block th:each="article : ${articles}">
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <h1 style="font-size: 1.5em; margin-bottom: 8px;">
+                <a th:href="'article/'+${article.articleId}" th:text="${article.jpTitle}">Article Title</a>
+            </h1>
+            <p style="font-size: 1em; color: #333;"
+               th:text="${#strings.substring(article.content, 0, 20)}">This is the content of the article.</p>
+        </div>
+    </th:block>
+</main>
+
+</body>
+</html>
