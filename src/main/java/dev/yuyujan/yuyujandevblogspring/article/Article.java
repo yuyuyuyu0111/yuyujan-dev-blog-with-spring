@@ -1,12 +1,11 @@
 package dev.yuyujan.yuyujandevblogspring.article;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import dev.yuyujan.yuyujandevblogspring.tag.Tag;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Data
 @Entity
@@ -19,5 +18,7 @@ public class Article {
     private Timestamp insertTime;
     private Timestamp updateTime;
     private String content;
-    private Long tagId;
+    @OneToMany
+    @JoinColumn(name = "tag_id")
+    private List<Tag> tags;
 }

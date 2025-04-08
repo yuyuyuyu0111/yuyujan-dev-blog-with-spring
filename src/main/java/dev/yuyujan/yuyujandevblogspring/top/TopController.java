@@ -27,9 +27,12 @@ public class TopController {
     public String top(Model model) {
         List<Article> articles = articleRepository.findAll();
         model.addAttribute(AttributeNameConstants.TITLE, "yuyujan.dev");
+        // 見出し用に変換
+        articles.forEach(article -> article.setContent(article.getContent().replace("#", "").substring(0, 20)));
         model.addAttribute("articles", articles);
         return "top";
     }
+
     @GetMapping(path = "about")
     public String about(Model model) {
         model.addAttribute(AttributeNameConstants.TITLE, "About");

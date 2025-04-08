@@ -22,7 +22,7 @@
                 <a th:href="'article/'+${article.articleId}" th:text="${article.jpTitle}">Article Title</a>
             </h1>
             <p style="font-size: 1em; color: #333;"
-               th:text="${#strings.substring(article.content, 0, 20)}">This is the content of the article.</p>
+               th:text="${article.content}">This is the content of the article.</p>
         </div>
     </th:block>
 </main>
