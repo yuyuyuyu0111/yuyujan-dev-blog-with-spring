@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="記事一覧">Title</title>
+</head>
+<body>
+<header th:replace="~{frags/header}"></header>
+<main>
+    <th:block th:each="tag : ${tags}">
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <h1 style="font-size: 1.5em; margin-bottom: 8px;">
+                <a th:href="'tag/'+${tag.tagId}" th:text="${tag.tagName}">tag name</a>
+            </h1>
+        </div>
+    </th:block>
+    <th:block th:if="${#lists.isEmpty(tags)}">登録されているタグはありません。更新をお待ちください。</th:block>
+</main>
+
+
+</body>
+</html>

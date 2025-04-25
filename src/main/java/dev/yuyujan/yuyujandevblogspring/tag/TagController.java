@@ -19,14 +19,14 @@ public class TagController {
     public String tags(Model model) {
         var tags = tagRepository.findAll();
         model.addAttribute("tags", tags);
-        return "tag";
+        return "tag/list";
     }
 
     @GetMapping("/search/{tagName}")
     public String tag(@PathVariable String tagName, Model model) {
         var tags = tagRepository.findByTagName(tagName);
         model.addAttribute("tags", tags);
-        return "search/tag";
+        return "tag/search";
     }
 
 }

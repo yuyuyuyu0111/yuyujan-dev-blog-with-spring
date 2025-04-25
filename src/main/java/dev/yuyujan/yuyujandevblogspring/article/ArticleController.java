@@ -23,6 +23,13 @@ public class ArticleController {
         this.articleRepository = articleRepository;
     }
 
+    @GetMapping("")
+    public String index(Model model) {
+        var articles = articleRepository.findAll();
+        model.addAttribute("articles", articles);
+        return "article/list";
+    }
+
     @GetMapping("{id}")
     public String article(@PathVariable String id, Model model) {
 
@@ -39,7 +46,7 @@ public class ArticleController {
         String renderedContents = renderer.render(document);
         model.addAttribute("renderedContents",renderedContents );
 
-        return "article";
+        return "article/article";
     }
 
 
