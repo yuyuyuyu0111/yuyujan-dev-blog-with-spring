@@ -1,24 +1,27 @@
 package dev.yuyujan.yuyujandevblogspring.article;
 
+import dev.yuyujan.yuyujandevblogspring.articletag.ArticleTag;
 import dev.yuyujan.yuyujandevblogspring.tag.Tag;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
 public class Article {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "article_seq")
+    @SequenceGenerator(allocationSize = 1, name = "article_seq", sequenceName = "article_seq")
     private Long articleId;
     private String enTitle;
     private String jpTitle;
-    private Timestamp insertTime;
-    private Timestamp updateTime;
+    private LocalDateTime insertTime;
+    private LocalDateTime updateTime;
     private String content;
-    @OneToMany
-    @JoinColumn(name = "tag_id")
-    private List<Tag> tags;
+    @OneToMany(mappedBy = "article")
+    private Set<ArticleTag> articleTags;
+
 }
